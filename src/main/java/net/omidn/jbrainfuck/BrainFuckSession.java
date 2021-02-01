@@ -20,6 +20,8 @@ public class BrainFuckSession {
 
 	}
 	
-	
+	public BrainFuckSession() {
+		this(300, System.in, System.out);
+	}
 	
 }
