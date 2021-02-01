@@ -38,4 +38,16 @@ public class BrainFuckSession {
 	public void doDecrement() {
 		charList.set(pointer, (char) (charList.get(pointer) - 1));
 	}
+	
+	/**
+	 * Shifts the pointer to the right by 1.<br>
+	 * This does what character > does in BrainFuck.
+	 */
+	public void rightShift() {
+		pointer++;
+		if (pointer > charList.size()) {
+			charList.add((char) 0);
+		}
+	}
+	
 }
