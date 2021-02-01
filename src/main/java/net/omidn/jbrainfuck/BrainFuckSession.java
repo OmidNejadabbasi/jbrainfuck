@@ -49,5 +49,16 @@ public class BrainFuckSession {
 			charList.add((char) 0);
 		}
 	}
-	
+	/**
+	 * Shifts the pointer to the left by 1.<br>
+	 * This does what character < does in BrainFuck.
+	 * 
+	 * @throws RuntimeException if the pointer becomes zero.
+	 */
+	public void leftShift() {
+		pointer--;
+		if (pointer < 0) {
+			throw new RuntimeException("Syntax error: The pointer can't be negetive!");
+		}
+	}
 }
