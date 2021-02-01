@@ -73,4 +73,17 @@ public class BrainFuckSession {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Writes the current char to <code>stdout</code> OutputStream.
+	 * This does what character . (dot) does in BrainFuck.
+	 */
+	public void write() {
+		try {
+			stdout.write(charList.get(pointer));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
