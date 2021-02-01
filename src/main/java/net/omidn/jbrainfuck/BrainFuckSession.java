@@ -23,5 +23,19 @@ public class BrainFuckSession {
 	public BrainFuckSession() {
 		this(300, System.in, System.out);
 	}
-	
+	/**
+	 * Increments the char at cell which <code>pointer</code> points to.<br>
+	 * This does what character + (plus) does in BrainFuck.
+	 */
+	public void doIncrement() {
+		charList.set(pointer, (char) (charList.get(pointer) + 1));
+	}
+
+	/**
+	 * Decrements the char at cell which <code>pointer</code> points to.<br>
+	 * This does what character - (minus) does in BrainFuck.
+	 */
+	public void doDecrement() {
+		charList.set(pointer, (char) (charList.get(pointer) - 1));
+	}
 }
