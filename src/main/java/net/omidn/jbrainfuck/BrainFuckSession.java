@@ -65,10 +65,15 @@ public class BrainFuckSession {
 	/**
 	 * Reads a char from stdin InputStream and stores it in current cell that the pointer points to.<br>
 	 * This does what character , (cama) does in BrainFuck.
+	 * It igonres all the new line characters.
 	 */
 	public void read() {
 		try {
-			charList.set(pointer, (char) stdin.read());
+			char nextChar = (char) stdin.read();
+			while(nextChar=='\n' || nextChar=='\r') {
+				nextChar = (char) stdin.read();
+			}
+			charList.set(pointer, (char) nextChar);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
