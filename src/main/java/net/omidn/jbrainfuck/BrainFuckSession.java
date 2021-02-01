@@ -1,5 +1,6 @@
 package net.omidn.jbrainfuck;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -59,6 +60,17 @@ public class BrainFuckSession {
 		pointer--;
 		if (pointer < 0) {
 			throw new RuntimeException("Syntax error: The pointer can't be negetive!");
+		}
+	}
+	/**
+	 * Reads a char from stdin InputStream and stores it in current cell that the pointer points to.<br>
+	 * This does what character , (cama) does in BrainFuck.
+	 */
+	public void read() {
+		try {
+			charList.set(pointer, (char) stdin.read());
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
