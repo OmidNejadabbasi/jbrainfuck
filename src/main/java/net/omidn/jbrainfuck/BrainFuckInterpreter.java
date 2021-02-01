@@ -7,11 +7,11 @@ import java.util.List;
 
 public class BrainFuckInterpreter {
 	private String bfCode;
-	
+
 	public BrainFuckInterpreter(String bfCode) {
 		this.bfCode = bfCode;
 	}
-	
+
 	public BrainFuckInterpreter(File bfFile) throws IOException {
 		StringBuilder sb = new StringBuilder();
 
@@ -22,5 +22,17 @@ public class BrainFuckInterpreter {
 		}
 		this.bfCode = sb.toString();
 	}
-	
+
+	public static String removeComments(String bfCode) {
+
+		// Removig any character other than (,.+-[]><)
+		bfCode = bfCode.replaceAll("[^.,+-[]><]+", "");
+
+		// Romoving escaped characters
+		bfCode = bfCode.replaceAll("\".+?\"", "");
+
+		return bfCode;
+
+	}
+
 }
